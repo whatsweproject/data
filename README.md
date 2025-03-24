@@ -31,3 +31,6 @@ generated_ids = [
 
 response = tokenizer.batch_decode(generated_ids, skip_special_tokens=True)[0]
 print(response)
+
+full_prompt = f"{system_prompt}\n\nPlease respond with JSON that conforms to this Pydantic model:\n\n```python\n{Person.schema_json(indent=2)}\n```\n\n{prompt}"
+
